@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>
-    哒哒哒
+    新建博客 - 哒哒哒
   </title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -67,89 +67,103 @@
 
 
   <div class="main">
-    <div class="list">
-  
-<div class=index_list>
+    
+<link rel="stylesheet" href="/css/post.css">
 
-  <div class="line_1">
-    <div class="index_post_date">
-      「 May 29th 」
+<post>
+
+  <div class="post_title">
+    新建博客
+  </div>
+
+  <br/><br/>
+
+  <div id="post_content">
+    <p>title: 新建博客<br>date: 2020-05-29 08:31:21<br>tags:</p>
+<h1 id="hexo简介"><a href="#hexo简介" class="headerlink" title="hexo简介"></a>hexo简介</h1><p>Hexo是一款基于Node.js的静态博客框架，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。大家可以进入hexo官网进行详细的查看，这个可选择中文查看</p>
+<h2 id="搭建流程简绍"><a href="#搭建流程简绍" class="headerlink" title="#搭建流程简绍"></a>#搭建流程简绍</h2><h3 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h3><p>点击Git官网下载对应版本</p>
+<p><img src="http://qb2j5dmig.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20200321211905.png" alt=""></p>
+<p>下载之后安装一路next，完成之后运行git检查是否安装成功，输入<code>git --version</code> 来查看一下版本</p>
+<h3 id="2-安装nodeJS"><a href="#2-安装nodeJS" class="headerlink" title="2.安装nodeJS"></a>2.安装nodeJS</h3><p>Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。</p>
+<p>windows：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">nodejs</a>选择LTS版本就行了。</p>
+<img src="http://qb2j5dmig.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20200322114635.png"  />
+
+<p>下载完成之后也是一路next</p>
+<p>安装完后，打开命令行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.node -v</span><br><span class="line">2.npm -v</span><br></pre></td></tr></table></figure>
+
+<p>检查一下有没有安装成功</p>
+<p>顺便说一下，windows在git安装完后，就可以直接使用git bash来敲命令行了，不用自带的cmd，cmd有点难用。</p>
+<h3 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h3><p>前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹blog，然后<code>cd</code>到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。</p>
+<p>输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在cmd窗口下输入输入 npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>在本地搭建开始之前我们还需要做最后一步准备工作——创建一个用来放置关于博客资源和博文的文件夹</p>
+<p>继续在cmd窗口下输入 md blog 就可以在当前路径下创建一个名叫blog的文件夹</p>
+<img src="http://qb2j5dmig.bkt.clouddn.com/%E6%96%87%E4%BB%B6%E5%A4%B9%E5%86%85%E5%AE%B9.png"  />
+
+<p>准备就绪，我们首先输入 cd blog 进入到刚才新建的文件夹</p>
+<p>然后输入 hexo init 耐心等待初始化</p>
+<p>最后输入 hexo s </p>
+<p>显示</p>
+<img src="http://qb2j5dmig.bkt.clouddn.com/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88.png"  />
+
+<p>复制粘贴<a href="http://localhost:4000到浏览器，浏览器加载完成，博客本地搭建就完成了。">http://localhost:4000到浏览器，浏览器加载完成，博客本地搭建就完成了。</a></p>
+
+  </div>
+
+  <br/>
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="busuanzi">
+      <span id="busuanzi_container_site_pv">This post has been read：<span id="busuanzi_value_page_pv"></span>times</span>
     </div>
-  </div>
-
-  <a id="index_post_title" href="/2020/05/29/乔迁/">乔迁</a><br/>
-
-  <div class="blank">
   
-  </div>
+  <br/><br/>
 
-  <div class="index_post_excerpt">
-    
-  </div>
 
-  <!--
-  <a class="more" href="/2020/05/29/乔迁/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 May 29th 」
-    </div>
-  </div>
-
-  <a id="index_post_title" href="/2020/05/29/新建博客/">新建博客</a><br/>
-
-  <div class="blank">
   
+
+  <div class="copyright" >
+
+    <a class="license-image" rel="license" href="http://creativecommons.org/licenses/by
+-nc
+-sa
+/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by
+-nc
+-sa
+/4.0/80x15.png" />
+    </a>
+
+      <p>本作品采用
+      <a class="license-word-hyper" rel="license" href="http://creativecommons.org/licenses/by
+-nc
+-sa
+/4.0/">
+        知识共享署名
+-非商业性使用
+-相同方式共享
+4.0 国际许可协议</a>
+      进行许可。</p>
   </div>
 
-  <div class="index_post_excerpt">
-    
-  </div>
 
-  <!--
-  <a class="more" href="/2020/05/29/新建博客/">阅读更多</a>
-  -->
-
+  <div id="top">
+    <a href="#">▲</a>
+    <a href="#footer">▼</a>
 </div>
 
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 May 28th 」
-    </div>
-  </div>
-
-  <a id="index_post_title" href="/2020/05/28/hello-world/">Hello World</a><br/>
-
-  <div class="blank">
   
-  </div>
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2020/05/28/hello-world/">阅读更多</a>
-  -->
-
-</div>
 
 
-<div class="page_num">
+<div id="comment"></div>
 
-    
-    
 
-</div>
 
-</div>
+
+
+</post>
 
   </div>
 
