@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>
-    哒哒哒
+    启用通知 - 哒哒哒
   </title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -67,161 +67,89 @@
 
 
   <div class="main">
-    <div class="list">
-  
-<div class=index_list>
+    
+<link rel="stylesheet" href="/css/post.css">
 
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 26th 」
+<post>
+
+  <div class="post_title">
+    启用通知
+  </div>
+
+  <br/><br/>
+
+  <div id="post_content">
+    <p>首先添加一个变量，我们可以用来跟踪通知订阅的状态:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var notifications_enabled &#x3D; false;</span><br></pre></td></tr></table></figure>
+
+<p>2.添加函数setNotificationsStatus(status)，将通知订阅的状态传进来，将该状态赋给notifications_enabled。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function setNotificationsStatus(status) &#123; </span><br><span class="line">        notifications_enabled &#x3D; status; </span><br><span class="line">        document.getElementById(&#39;status_notifications&#39;).innerHTML &#x3D; status; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>添加一个订阅统计数据通知的代码和启用、禁止的代码</p>
+<p>部分代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function toggleAccelerometerNotifications() &#123; </span><br><span class="line">        console.log(&quot;toggleAccelerometerNotifications&quot;); </span><br><span class="line">        if (!connected) &#123; </span><br><span class="line">            alert(&quot;Error: Discover and connect to a device before using this function&quot;);  </span><br><span class="line">            return;  </span><br><span class="line">        &#125; </span><br><span class="line">        if (!services_discovered) &#123; </span><br><span class="line">            alert(&quot;Error: Service discovery has not yet completed&quot;); </span><br><span class="line">            return; </span><br><span class="line">        &#125;  </span><br><span class="line">        if (!has_accelerometer_service) &#123;  </span><br><span class="line">            alert(&quot;Error: The connected device does not contain the accelerometer service&quot;);  </span><br><span class="line">            return;</span><br><span class="line">        &#125; </span><br><span class="line">        if (!has_accelerometer_data) &#123;  </span><br><span class="line">            alert(&quot;Error: The connected device does not contain the accelerometer data characteristic&quot;);   return; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if (!notifications_enabled) &#123;  </span><br><span class="line">        accelerometer_data.startNotifications()</span><br><span class="line">            .then(_ &#x3D;&gt; &#123; </span><br><span class="line">            console.log(&#39;accelerometer notifications started&#39;);  </span><br><span class="line">            setNotificationsStatus(true); </span><br><span class="line"> </span><br><span class="line">        &#125;)  </span><br><span class="line">            .catch(error &#x3D;&gt; &#123; </span><br><span class="line">            console.log(&#39;Error: &#39; + error);   </span><br><span class="line">            alert(&#39;Error: &#39; + error);  </span><br><span class="line">            return;  </span><br><span class="line">        &#125;); </span><br><span class="line">    &#125; </span><br><span class="line">        else</span><br><span class="line">        &#123; </span><br><span class="line">            accelerometer_data.stopNotifications()  </span><br><span class="line">                .then(_ &#x3D;&gt; &#123;  </span><br><span class="line">                console.log(&#39;accelerometer notifications stopped&#39;);  </span><br><span class="line">                setNotificationsStatus(false); </span><br><span class="line">            &#125;)   </span><br><span class="line">                .catch(error &#x3D;&gt; &#123;  </span><br><span class="line">                console.log(&#39;Could not stop accelerometer_data notifications: &#39; + error);  </span><br><span class="line">            &#125;); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function onAccelerometerData(event) &#123; </span><br><span class="line">        console.log(&quot;onAccelerometerData&quot;);</span><br><span class="line">        buffer &#x3D; event.target.value.buffer; </span><br><span class="line">        dataview &#x3D; new DataView(buffer); </span><br><span class="line">        X &#x3D; dataview.getUint16(0, true); </span><br><span class="line">        Y &#x3D; dataview.getUint16(2, true); </span><br><span class="line">        Z &#x3D; dataview.getUint16(4, true);  </span><br><span class="line">        console.log(&quot;X&#x3D;&quot; + X + &quot;, Y&#x3D;&quot; + Y + &quot;, Z+&quot; + Z);  document.getElementById(&quot;accelerometer_data&quot;).innerHTML &#x3D; &quot;X&#x3D;&quot; + X + &quot;, Y&#x3D;&quot; + Y + &quot;, Z&#x3D;&quot; + Z; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后我们可以在网页上添加显示启用服务的按钮或者表格，就可以清楚的看见启用了服务通知啦</p>
+<p><img src="http://qb2j5dmig.bkt.clouddn.com/14.png" alt=""></p>
+
+  </div>
+
+  <br/>
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="busuanzi">
+      <span id="busuanzi_container_site_pv">This post has been read：<span id="busuanzi_value_page_pv"></span>times</span>
     </div>
-  </div>
-
-  <a id="index_post_title" href="/2020/06/26/控制任意小灯/">控制任意小灯</a><br/>
-
-  <div class="blank">
   
-  </div>
+  <br/><br/>
 
-  <div class="index_post_excerpt">
-    
-  </div>
 
-  <!--
-  <a class="more" href="/2020/06/26/控制任意小灯/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 26th 」
-    </div>
-  </div>
-
-  <a id="index_post_title" href="/2020/06/26/控制小灯的行与列/">控制小灯的行与列</a><br/>
-
-  <div class="blank">
   
+
+  <div class="copyright" >
+
+    <a class="license-image" rel="license" href="http://creativecommons.org/licenses/by
+-nc
+-sa
+/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by
+-nc
+-sa
+/4.0/80x15.png" />
+    </a>
+
+      <p>本作品采用
+      <a class="license-word-hyper" rel="license" href="http://creativecommons.org/licenses/by
+-nc
+-sa
+/4.0/">
+        知识共享署名
+-非商业性使用
+-相同方式共享
+4.0 国际许可协议</a>
+      进行许可。</p>
   </div>
 
-  <div class="index_post_excerpt">
-    
-  </div>
 
-  <!--
-  <a class="more" href="/2020/06/26/控制小灯的行与列/">阅读更多</a>
-  -->
-
+  <div id="top">
+    <a href="#">▲</a>
+    <a href="#footer">▼</a>
 </div>
 
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 26th 」
-    </div>
-  </div>
-
-  <a id="index_post_title" href="/2020/06/26/启用通知/">启用通知</a><br/>
-
-  <div class="blank">
   
-  </div>
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2020/06/26/启用通知/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 21st 」
-    </div>
-  </div>
-
-  <a id="index_post_title" href="/2020/06/21/读写特性/">读写特性</a><br/>
-
-  <div class="blank">
-  
-  </div>
-
-  <div class="index_post_excerpt">
-    <p>这次为我们的蓝牙开发板添加读写特性；</p>
-  </div>
-
-  <!--
-  <a class="more" href="/2020/06/21/读写特性/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 21st 」
-    </div>
-  </div>
-
-  <a id="index_post_title" href="/2020/06/21/服务特性/">服务特性</a><br/>
-
-  <div class="blank">
-  
-  </div>
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2020/06/21/服务特性/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 21st 」
-    </div>
-  </div>
-
-  <a id="index_post_title" href="/2020/06/21/连接蓝牙设备/">连接蓝牙设备</a><br/>
-
-  <div class="blank">
-  
-  </div>
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2020/06/21/连接蓝牙设备/">阅读更多</a>
-  -->
-
-</div>
 
 
-<div class="page_num">
+<div id="comment"></div>
 
-    
-    
 
-</div>
 
-</div>
+
+
+</post>
 
   </div>
 
